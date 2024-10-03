@@ -21,7 +21,7 @@ const MyChats = ({ fetchAgain }) => {
                 },
             };
 
-            const { data } = await axios.get("http://localhost:5000/api/chat", config);
+            const { data } = await axios.get("https://echochat-onns.onrender.com/api/chat", config);
             setChats(data);
         } catch (error) {
             toast({
@@ -37,7 +37,6 @@ const MyChats = ({ fetchAgain }) => {
     useEffect(() => {
         setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
         fetchChats();
-        // eslint-disable-next-line
     }, [fetchAgain]);
     return <>
         <Box
