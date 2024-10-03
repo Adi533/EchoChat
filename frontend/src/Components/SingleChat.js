@@ -12,7 +12,7 @@ import ScrollableChat from './ScrollableChat';
 import io from "socket.io-client";
 import animationData from "../animations/typing.json";
 import Lottie from "react-lottie";
-const ENDPOINT = 'http://localhost:5000';
+const ENDPOINT = 'https://echochat-onns.onrender.com';
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -59,7 +59,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             setLoading(true);
 
             const { data } = await axios.get(
-                `http://localhost:5000/api/message/${selectedChat._id}`,
+                `https://echochat-onns.onrender.com/api/message/${selectedChat._id}`,
                 config
             );
             setMessages(data);
@@ -90,7 +90,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 }
                 setNewMessage("");
                 const { data } = await axios.post(
-                    'http://localhost:5000/api/message',
+                    'https://echochat-onns.onrender.com/api/message',
                     {
                         content: newMessage,
                         chatId: selectedChat._id,
